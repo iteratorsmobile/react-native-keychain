@@ -54,5 +54,14 @@
   },
   "volta": {
     "node": "16.14.2"
+  },
+  "codegenConfig": {
+    "libraries": [
+        {
+        "name": "RNKeychainSpec",
+        "type": "modules",
+        "jsSrcsDir": ""
+        }
+    ]
   }
 }

@@ -9,7 +9,14 @@ buildscript {
   }
 }
 
+def isNewArchitectureEnabled() {
+    return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+}
+
 apply plugin: 'com.android.library'
+if (isNewArchitectureEnabled()) {
+    apply plugin: 'com.facebook.react'
+}
 apply plugin: "com.adarshr.test-logger"
 
 def safeExtGet(prop, fallback) {
@@ -86,4 +93,11 @@ dependencies {
 
   // Uncomment for including JRE implementation of crypto api (that is used in Robolectric tests)
   // testImplementation fileTree(dir: "${System.properties.get("java.home")}/lib", include: ["jce.jar"])
+}
+if (isNewArchitectureEnabled()) {
+    react {
+         jsRootDir = file("../")
+         libraryName = "keychain"
+         codegenJavaPackageName = "com.oblador.keychain"
+     }
 }
