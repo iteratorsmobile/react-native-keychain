@@ -1,6 +1,5 @@
 require 'json'
 version = JSON.parse(File.read('package.json'))["version"]
-folly_version = '2021.06.28.00-v2'
 folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
 
 Pod::Spec.new do |s|
@@ -15,11 +14,12 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.osx.deployment_target = '10.13'
   s.source         = { :git => "https://github.com/oblador/react-native-keychain.git", :tag => "v#{s.version}" }
-  s.source_files   = 'RNKeychainManager/**/*.{h,m}'
+  s.source_files   = 'RNKeychainManager/**/*.{h,m,mm}'
+
   s.preserve_paths = "**/*.js"
   s.dependency 'React-Core'
 
-  # This guard prevent to install the dependencies when we run `pod install` in the old architecture.
+  # Don't install the dependencies when we run `pod install` in the old architecture.
   if ENV['RCT_NEW_ARCH_ENABLED'] == '1' then
     s.compiler_flags = folly_compiler_flags + " -DRCT_NEW_ARCH_ENABLED=1"
     s.pod_target_xcconfig    = {
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     }
 
     s.dependency "React-Codegen"
-    s.dependency "RCT-Folly", folly_version
+    s.dependency "RCT-Folly"
     s.dependency "RCTRequired"
     s.dependency "RCTTypeSafety"
     s.dependency "ReactCommon/turbomodule/core"
