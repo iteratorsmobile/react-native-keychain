@@ -16,10 +16,6 @@
 #import <LocalAuthentication/LAContext.h>
 #endif
 
-#ifdef RCT_NEW_ARCH_ENABLED
-#import "RNKeychainSpec.h"
-#endif
-
 @implementation RNKeychainManager
 
 @synthesize bridge = _bridge;

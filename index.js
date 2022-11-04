@@ -1,7 +1,7 @@
 // @flow
 import { NativeModules, Platform } from 'react-native';
 
-const RNKeychainManager = require("./specs/NativeRNKeychain").default;
+const RNKeychainManager = require("./spec/NativeRNKeychain").default;
 
 export const SECURITY_LEVEL: {
   ANY: string,
