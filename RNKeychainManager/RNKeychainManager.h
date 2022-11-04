@@ -19,5 +19,4 @@
 #ifdef RCT_NEW_ARCH_ENABLED
 @interface RNKeychainManager () <NativeRNKeychainSpec>
 @end
-
 #endif
