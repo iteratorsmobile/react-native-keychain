@@ -551,19 +551,19 @@ RCT_EXPORT_METHOD(requestSharedWebCredentials:(RCTPromiseResolveBlock)resolve re
       return reject([NSString stringWithFormat:@"%li", (long)nsError.code], nsError.description, nil);
     }
 
-    if (CFArrayGetCount(credentials) > 0) {
-      CFDictionaryRef credentialDict = CFArrayGetValueAtIndex(credentials, 0);
-      NSString *server = (__bridge NSString *)CFDictionaryGetValue(credentialDict, kSecAttrServer);
-      NSString *username = (__bridge NSString *)CFDictionaryGetValue(credentialDict, kSecAttrAccount);
-      NSString *password = (__bridge NSString *)CFDictionaryGetValue(credentialDict, kSecSharedPassword);
+    // if (CFArrayGetCount(credentials) > 0) {
+    //   CFDictionaryRef credentialDict = CFArrayGetValueAtIndex(credentials, 0);
+    //   NSString *server = (__bridge NSString *)CFDictionaryGetValue(credentialDict, kSecAttrServer);
+    //   NSString *username = (__bridge NSString *)CFDictionaryGetValue(credentialDict, kSecAttrAccount);
+    //   NSString *password = (__bridge NSString *)CFDictionaryGetValue(credentialDict, kSecSharedPassword);
 
-      return resolve(@{
-        @"server": server,
-        @"username": username,
-        @"password": password,
-        @"storage": @"keychain"
-      });
-    }
+    //   return resolve(@{
+    //     @"server": server,
+    //     @"username": username,
+    //     @"password": password,
+    //     @"storage": @"keychain"
+    //   });
+    // }
     return resolve(@(NO));
   });
 }

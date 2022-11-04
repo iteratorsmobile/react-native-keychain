@@ -56,12 +56,11 @@
     "node": "16.14.2"
   },
   "codegenConfig": {
-    "libraries": [
-        {
-        "name": "RNKeychainSpec",
-        "type": "modules",
-        "jsSrcsDir": ""
-        }
-    ]
+    "name": "RNKeychainSpec",
+    "type": "modules",
+    "jsSrcsDir": "spec",
+    "android": {
+      "javaPackageName": "com.oblador.keychain.spec"
+    }   
   }
 }
