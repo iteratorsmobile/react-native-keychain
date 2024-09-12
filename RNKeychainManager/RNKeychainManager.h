@@ -9,6 +9,14 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTLog.h>
 
-@interface RNKeychainManager : NSObject <RCTBridgeModule>
+#ifdef RCT_NEW_ARCH_ENABLED
+#import "RNKeychainSpec.h"
+#endif
 
+@interface RNKeychainManager : NSObject <RCTBridgeModule>
 @end
+
+#ifdef RCT_NEW_ARCH_ENABLED
+@interface RNKeychainManager () <NativeRNKeychainSpec>
+@end
+#endif

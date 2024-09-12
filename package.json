@@ -54,5 +54,13 @@
   },
   "volta": {
     "node": "16.14.2"
+  },
+  "codegenConfig": {
+    "name": "RNKeychainSpec",
+    "type": "modules",
+    "jsSrcsDir": "spec",
+    "android": {
+      "javaPackageName": "com.oblador.keychain.spec"
+    }   
   }
 }
